@@ -29,8 +29,13 @@
 <h1>
 <a id="debugging-dart-logs" class="anchor" href="#debugging-dart-logs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Debugging dart logs:</h1>
 
+<p>When low logs appear:
+  Check in the following order:</p>
+
 <ol>
-<li>DDC-128 It is not ddc-128 if ts parser is not hung. If the audio and video pts in ts parser are varying when the low logs are coming it means it's not DDC-128.</li>
+<li>DDC-128 It is not ddc-128 if ts parser is not hung. If the audio and video pts in ts parser logs are varying when the low logs are coming it means it's not DDC-128.</li>
+<li>DDC-353 It is not DDC-353 if device agent is not purging and new file didn't start and there was no seek done for the new file.</li>
+<li>Check before low comes: If the diff goes off suddenly, it means either video or audio is not being rendered. Video in z3 is always rendered so when it looks like video is stuck it actually means some other issues. Which in case of hd can be too many graphics or 100% graphics.</li>
 </ol>
 
 <h1>
